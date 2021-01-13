@@ -3,8 +3,12 @@ import React from 'react'
 
 const Event = ({dispatch, event}) => {
 const id = event.id
-const handleClickDeleteButton = () => {
-  dispatch({ type: "DELETE_EVNET", id })
+  const handleClickDeleteButton = () => {
+  const result = window.confirm(
+    `イベント(id=${event.id})を本当に削除しますか？`
+  )
+
+  if (result)dispatch({ type: "DELETE_EVNET", id })
 }
 
 return (
